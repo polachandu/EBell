@@ -1,0 +1,9 @@
+django-admin startproject application .
+
+python manage.py runserver
+
+python manage.py startapp Patient
+
+python manage.py makemigrations
+
+python manage.py migrate

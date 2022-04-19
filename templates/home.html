@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block content%}
+<body>
+<center>
+<!--Room Number {{room_number}}, -->
+    <h1 class="p-3 mb-2 bg-light text-dark">How Can we Help You Today?</h1>
+
+    {% include "emergency_button.html" %}
+
+    <form method="GET" action="/medicalneed/"> {% csrf_token %}
+        <button class="btn btn-warning" style="height:75px;width:300px">
+            I have a medical need or an urgent request &#128105;
+        </button>
+    </form>
+
+    <form method="GET" action="/nonmedicalneed/"> {% csrf_token %}
+        <button class="btn btn-light" style="height:75px;width:300px">
+            I have a non-medical need &#x1F6BD;&#x2615;
+        </button>
+    </form>
+
+    <form method="GET" action="/nonurgentquestion/"> {% csrf_token %}
+        <button class="btn btn-link" style="height:75px;width:300px">
+            I have a non-urgent question &#10067;
+
+        </button>
+    </form>
+
+    <form action="/roomnumber/"> {% csrf_token %}
+        <button class="btn btn-info" style="font-size:2vw">
+            &#128281;
+        </button>
+    </form>
+</center>
+</body>
+{%endblock content%}

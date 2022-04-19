@@ -1,0 +1,44 @@
+{%extends 'base.html'%}
+{%block content%}
+<body>
+<center>
+
+    <h1 class="p-3 mb-2 bg-light text-dark">Please choose the option that describes your condition!<br>
+        We will be here shortly 🏥👩‍⚕️👨‍⚕️</h1>
+
+    {% include "emergency_button.html" %}
+
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-warning" style="height:50px;width:400px" name="bathroom">
+            &#128701 I need help going to the bathroom &#128701;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-success" style="height:50px;width:400px" name="linens">
+            &#128719 I would like some linens &#128719;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-success" style="height:50px;width:400px" name="food">
+            &#128688 &#129386 I would like some food or water &#129386;&#128688;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-success" style="height:50px;width:400px" name="settle">
+            &#128587 I need help getting settled into my room &#128587;
+        </button>
+    </form>
+
+    <form action="/home/"> {% csrf_token %}
+        <button class="btn btn-info" style="font-size:2vw">
+            &#128281;
+        </button>
+    </form>
+</center>
+
+</body>
+{%endblock content%}

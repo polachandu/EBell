@@ -1,0 +1,17 @@
+{%extends 'domain.html'%}
+
+{%block content%}
+<body>
+<center>
+    <form method="POST" action="/home/"> {% csrf_token %}
+            <h3 class="alert alert-info">Please insert room number and click login...</h3>
+        <input type="text" value="" style="height:20px;width:45px;" name="input_number">
+        <button class="btn btn-success" type="submit">
+            Login
+        </button>
+    </form>
+
+</center>
+
+</body>
+{%endblock content%}

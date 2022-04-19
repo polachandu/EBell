@@ -1,0 +1,75 @@
+{%extends 'base.html'%}
+{%block content%}
+<body>
+<center>
+
+    <h1>Please choose the option that describes your condition!<br>
+        We will be here shortly
+    </h1>
+
+    {% include "emergency_button.html" %}
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-danger" style="height:50px;width:400px" name="vaginal_bleed">
+            &#129656 I'm having vaginal bleeding &#129656;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-danger" style="height:50px;width:400px" name="baby">
+            &#128118 I think something is wrong with my baby &#128118;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-danger" style="height:50px;width:400px" name="water-broke">
+            &#127754 I think my water broke &#127754;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-danger" style="color:white;height:50px;width:400px" name="pressure">
+            &#9888 I'm feeling a lot of pressure - urge to push &#9888;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-danger" style="height:50px;width:400px" name="pain">
+            😩 I am feeling a lot of pain 😩
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-warning" style="height:50px;width:400px" name="nausea">
+            &#129314 I have some nausea &#129314;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-warning" style="height:50px;width:400px" name="beeping">
+            &#x1f4df Something is beeping in my room &#x1f4df;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-warning" style="height:50px;width:400px" name="foley">
+            &#129328 My foley/Cervidil came out &#129328;
+        </button>
+    </form>
+
+    <form method="POST" action="/requestsent/"> {% csrf_token %}
+        <button class="btn btn-warning" style="height:80px;width:400px" name="help">
+            &#127868 &#8205 &#128105 I need someone help me to care of my baby &#128105; &#8205; &#127868
+            (swaddling, bath, diaper change…) ;
+        </button>
+    </form>
+
+    <form action="/home/"> {% csrf_token %}
+        <button class="btn btn-info" style="font-size:2vw">
+            &#128281;
+        </button>
+    </form>
+</center>
+
+</body>
+{%endblock content%}

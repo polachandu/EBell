@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <meta http-equiv="refresh" content="30"/>
+    <script>
+       setTimeout(function() {
+            location.reload();
+        }, 3000);
+    </script>
+
+    <table class="table table-hover table-dark">
+    <thead >
+        <tr >
+            <!-- Your Columns HERE -->
+            <th scope="col" >Room Number</th>
+            <th scope="col">Message</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Emergency</th>
+            <th scope="col">Staff</th>
+            <th scope="col">Time</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Your rows inside the table HERE: -->
+        {% for instance in object_list %}
+            <tr>
+                <td>{{ instance.room_number }} </td>
+                <td>{{ instance.message }} </td>
+                <td>{{ instance.priority }} </td>
+                <td class="btn btn-{% if instance.emergency == 'Y' %}danger{% else %}success{% endif %}"
+                >{% if instance.emergency == 'Y' %}Emergency{% else %}Non-emergency{% endif %} </td>
+                <td>{{ instance.staff }}</td>
+                <td class="btn btn-{% if instance.danger_mode == 'red' %}danger{% elif instance.danger_mode == 'green' %}success{% else %}warning{% endif %}"
+                > {{ instance.time|timesince }} </td>
+                <td>
+                    <form action="/nurse/{{ instance.id }}/delete" method="POST">{% csrf_token %}
+                        <input type="submit" value="Accept" class="btn btn-primary"/>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+    </table>
+
+{% endblock %}
+
